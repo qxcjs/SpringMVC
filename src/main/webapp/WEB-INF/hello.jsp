@@ -9,9 +9,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="<%=basePath %>js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>resources/js/jquery-3.1.0.min.js"></script>
 </head>
 <body>
 	<h2>${message}</h2>
+	
+	<img alt="" src="<%=basePath %>resources/img/weather.png">
+	<img alt="" src="<%=basePath %>resources/dog.png">
 </body>
 </html>
