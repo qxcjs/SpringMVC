@@ -34,5 +34,9 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/spring-webmvc"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/spring-beans"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/spring-context"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/spring-context-support"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/spring-core"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

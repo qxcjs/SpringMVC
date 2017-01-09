@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:component-scan base-package="com.liss.spring.dao"/>
+
+	<bean id="configurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="fileEncoding" value="UTF-8"></property>
+		<!-- 引用单个文件 -->
+		<!-- <property name="location" value="classpath:db.properties"></property> -->
+		<!-- 有多个外部文件时可以使用list配置多个value -->
+		<property name="locations">
+			<list>
+				<value>classpath:db.properties</value>
+				<value>classpath:user.properties</value>
+				<!-- 如果需要加载WEB-INF文件时，则本文件也需要放在WEB-INF下面，否则会找不到文件。 -->
+				<!-- <value>/WEB-INF/spring/user.properties</value> -->
+			</list>
+		</property>
+	</bean>
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${xwfx.driver}"></property>
+		<property name="url" value="${xwfx.url}" />
+		<property name="username" value="${xwfx.user}" />
+		<property name="password" value="${xwfx.password}" />
+	</bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="user" class="com.liss.spring.bean.User">
+		<property name="name" value="${name}"></property>
+		<property name="age" value="${age}"></property>
+	</bean>
+
+</beans>
