@@ -1,4 +1,4 @@
-package com.liss.spring.utils;
+package com.liss.spring.test;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -8,7 +8,7 @@ import com.liss.spring.dao.IUserDAO;
 public class ApplicationContextUtils {
 	public static void main(String[] args) {
 		ApplicationContext context =
-			    new ClassPathXmlApplicationContext(new String[] {"applicationContext.xml"});
+			    new ClassPathXmlApplicationContext("applicationContext.xml");
 		System.out.println(context.getBean("user"));
 		IUserDAO dao = (IUserDAO) context.getBean("IUserImpl");
 		dao.getUserById("1");
